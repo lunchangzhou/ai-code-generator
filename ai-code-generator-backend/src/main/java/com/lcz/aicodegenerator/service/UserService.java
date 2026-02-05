@@ -1,7 +1,7 @@
 package com.lcz.aicodegenerator.service;
 
 import com.lcz.aicodegenerator.model.domain.User;
-import com.lcz.aicodegenerator.model.dto.request.UserQueryRequest;
+import com.lcz.aicodegenerator.model.dto.request.user.UserQueryRequest;
 import com.lcz.aicodegenerator.model.dto.vo.LoginUserVO;
 import com.lcz.aicodegenerator.model.dto.vo.UserVO;
 import com.mybatisflex.core.query.QueryWrapper;

@@ -9,7 +9,7 @@ import com.lcz.aicodegenerator.exception.ErrorCode;
 import com.lcz.aicodegenerator.mapper.UserMapper;
 import com.lcz.aicodegenerator.model.domain.User;
 import com.lcz.aicodegenerator.model.dto.enums.UserRoleEnum;
-import com.lcz.aicodegenerator.model.dto.request.UserQueryRequest;
+import com.lcz.aicodegenerator.model.dto.request.user.UserQueryRequest;
 import com.lcz.aicodegenerator.model.dto.vo.LoginUserVO;
 import com.lcz.aicodegenerator.model.dto.vo.UserVO;
 import com.lcz.aicodegenerator.service.UserService;

@@ -1,4 +1,4 @@
-package com.lcz.aicodegenerator.model.dto.request;
+package com.lcz.aicodegenerator.model.dto.request.user;
 
 import lombok.Data;
 

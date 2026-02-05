@@ -10,7 +10,7 @@ import com.lcz.aicodegenerator.exception.BusinessException;
 import com.lcz.aicodegenerator.exception.ErrorCode;
 import com.lcz.aicodegenerator.exception.ThrowUtils;
 import com.lcz.aicodegenerator.model.domain.User;
-import com.lcz.aicodegenerator.model.dto.request.*;
+import com.lcz.aicodegenerator.model.dto.request.user.*;
 import com.lcz.aicodegenerator.model.dto.vo.LoginUserVO;
 import com.lcz.aicodegenerator.model.dto.vo.UserVO;
 import com.lcz.aicodegenerator.service.UserService;
