@@ -39,14 +39,14 @@ public class AuthInterceptor {
         RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
         HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
         // 获取当前登录用户，如果未登录，getLoginUser 方法会抛未登录异常
-        LoginUserVO loginUserVO = userService.getLoginUser(request);
+        User loginUser = userService.getLoginUser(request);
         UserRoleEnum mustRoleEnum = UserRoleEnum.getEnumByValue(mustRole);
         // 代码走到这里，用户已登录，如果 mustRoleEnum 为 null，则不需要管理员权限，放行
         if (mustRoleEnum == null) {
             return joinPoint.proceed();
         }
         // 获取当前用户具有的权限
-        UserRoleEnum userRoleEnum = UserRoleEnum.getEnumByValue(loginUserVO.getUserRole());
+        UserRoleEnum userRoleEnum = UserRoleEnum.getEnumByValue(loginUser.getUserRole());
         // 没有权限，拒绝
         if (userRoleEnum == null) {
             throw new BusinessException(ErrorCode.NO_AUTH_ERROR);

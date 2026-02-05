@@ -151,8 +151,8 @@ public class UserController {
 
     @GetMapping("/get/login")
     public BaseResponse<LoginUserVO> getLoginUser(HttpServletRequest request) {
-        LoginUserVO loginUserVO = userService.getLoginUser(request);
-        return ResultUtils.success(loginUserVO);
+        User loginUser = userService.getLoginUser(request);
+        return ResultUtils.success(userService.getLoginUserVO(loginUser));
     }
 
     @PostMapping("/logout")

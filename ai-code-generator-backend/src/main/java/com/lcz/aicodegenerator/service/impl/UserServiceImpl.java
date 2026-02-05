@@ -121,7 +121,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>  implements U
     }
 
     @Override
-    public LoginUserVO getLoginUser(HttpServletRequest request) {
+    public User getLoginUser(HttpServletRequest request) {
         // 先判断是否已登录
         Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
         User currentUser = (User) userObj;
@@ -134,9 +134,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>  implements U
         if (currentUser == null) {
             throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR);
         }
-        LoginUserVO loginUserVO = new LoginUserVO();
-        BeanUtils.copyProperties(currentUser, loginUserVO);
-        return loginUserVO;
+        return currentUser;
     }
 
     @AuthCheck()
