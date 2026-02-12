@@ -2,6 +2,7 @@ package com.lcz.aicodegenerator.service;
 
 import com.lcz.aicodegenerator.model.domain.App;
 import com.lcz.aicodegenerator.model.domain.User;
+import com.lcz.aicodegenerator.model.dto.request.app.AppAddRequest;
 import com.lcz.aicodegenerator.model.dto.request.app.AppQueryRequest;
 import com.lcz.aicodegenerator.model.dto.vo.AppVO;
 import com.mybatisflex.core.query.QueryWrapper;
@@ -28,4 +29,6 @@ public interface AppService extends IService<App> {
     String deployApp(Long appId, User loginUser);
 
     void generateAppScreenshotAsync(Long appId, String appUrl);
+
+    Long createApp(AppAddRequest appAddRequest, User loginUser);
 }
