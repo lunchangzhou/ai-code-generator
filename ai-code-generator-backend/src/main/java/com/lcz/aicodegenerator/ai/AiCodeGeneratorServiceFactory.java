@@ -3,6 +3,7 @@ package com.lcz.aicodegenerator.ai;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import com.lcz.aicodegenerator.ai.tools.FileWriteTool;
+import com.lcz.aicodegenerator.ai.tools.ToolManager;
 import com.lcz.aicodegenerator.exception.BusinessException;
 import com.lcz.aicodegenerator.exception.ErrorCode;
 import com.lcz.aicodegenerator.model.dto.enums.CodeGenTypeEnum;
@@ -46,6 +47,8 @@ public class AiCodeGeneratorServiceFactory {
     // 推理流式模型, 支持深度思考
     @Resource
     private StreamingChatModel reasoningStreamingChatModel;
+    @Resource
+    private ToolManager toolManager;
 
     /**
      * AI 服务实例缓存
@@ -100,7 +103,7 @@ public class AiCodeGeneratorServiceFactory {
             case VUE_PROJECT -> AiServices.builder(AiCodeGeneratorService.class)
                     .streamingChatModel(reasoningStreamingChatModel)
                     .chatMemoryProvider(memoryId -> chatMemory)
-                    .tools(new FileWriteTool())
+                    .tools(toolManager.getAllTools())
                     .hallucinatedToolNameStrategy(toolExecutionRequest -> ToolExecutionResultMessage.from(
                             toolExecutionRequest, "Error: there is no tool called " + toolExecutionRequest.name()
                     ))
