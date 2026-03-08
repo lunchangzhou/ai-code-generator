@@ -1,228 +1,179 @@
-# 🤖 基于大语言模型的 AI 代码生成平台
-
-<div align="center">
-
-[![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.0-brightgreen.svg)](https://spring.io/projects/spring-boot)
-[![Vue](https://img.shields.io/badge/Vue-3.3.0-4fc08d.svg)](https://vuejs.org/)
-[![MySQL](https://img.shields.io/badge/MySQL-8.0-blue.svg)](https://www.mysql.com/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
-**一个基于对话式大语言模型的交互式 AI 代码生成平台**
-
-[功能特性](#-功能特性) • [技术栈](#-技术栈) • [系统架构](#-系统架构) • [项目结构](#-项目结构)
-
-</div>
+# 基于大语言模型的 AI 代码生成平台
 
 ---
 
-## 📖 项目简介
+## 一、项目简介
 
-随着人工智能技术的迅猛发展，大语言模型在代码理解和生成领域展现出了巨大的应用潜力。本项目旨在设计并实现一个基于对话式大语言模型的交互式AI代码生成平台，通过自然语言交互的方式，实现从需求描述到完整应用程序生成的端到端开发流程。
+随着人工智能技术的迅猛发展，大语言模型在代码理解和生成领域展现出了巨大的应用潜力。本项目旨在设计并实现一个基于对话式大语言模型的交互式 AI 代码生成平台，通过自然语言交互的方式，实现从需求描述到完整应用程序生成的端到端开发流程。
 
-本平台集成了多智能体协作、流式交互反馈、可视化编辑和一键部署功能，为企业级AI辅助开发提供完整的解决方案，显著降低了软件开发的技术门槛，提升了开发效率。
-
----
-
-## ✨ 功能特性
-
-### 🔥 核心功能
-
-| 功能模块 | 描述 |
-|---------|------|
-| **智能代码生成** | 通过自然语言描述需求，系统自动理解并生成相应代码，支持Vue、React、Spring Boot等多种技术栈 |
-| **可视化编辑** | 提供所见即所得的编辑体验，支持组件拖拽、属性编辑、样式调整、实时预览 |
-| **一键部署** | 自动执行构建命令，生成生产环境静态文件，提供可公开访问的URL |
-| **应用管理** | 项目的完整生命周期管理，包括创建、编辑、删除、版本控制、代码下载 |
-| **对话历史** | AI交互记录持久化，支持多轮对话上下文管理 |
-| **用户管理** | 用户注册登录、角色权限分配、会话管理 |
-
-### 🎯 系统角色
-
-- **普通用户**：智能代码生成、可视化编辑、一键部署、应用管理、对话历史
-- **管理员**：用户管理、应用管理、对话历史管理、系统设置、数据统计
+本平台集成了多智能体协作、流式交互反馈、可视化编辑和一键部署功能，为企业级 AI 辅助开发提供完整的解决方案，显著降低了软件开发的技术门槛，提升了开发效率。
 
 ---
 
-## 🛠 技术栈
+## 二、技术选型
+![1772952286439.png](https://wp-cdn.4ce.cn/v2/xUNsWNc.png)
 
-### 后端技术
+### 后端
+核心：
+- SpringBoot 3.x 框架
+- Java 21 虚拟线程
+- MyBatis Flex 数据访问
 
-| 技术 | 版本 | 说明 |
-|-----|------|------|
-| Java | 21 | 核心开发语言 |
-| Spring Boot | 3.2.0 | 核心框架 |
-| MyBatis-Flex | - | ORM框架，简化数据库操作 |
-| LangChain4j | - | 大语言模型应用开发框架 |
-| MySQL | 8.0 | 关系型数据库 |
-| Maven | - | 项目构建管理 |
+AI 技术：
+- LangChain4j 框架
+- Tool Calling 工具调用
+- Guardrails 护轨
+- DeepSeek Chat/Reasoner 大模型
+- Open AI ChatModel 接入
 
-### 前端技术
+数据存储：
+- MySQL 数据库
+- Redis 分布式缓存
+- COS 对象存储
+- Caffeine 本地缓存
 
-| 技术 | 版本 | 说明 |
-|-----|------|------|
-| Vue.js | 3.3.0 | 渐进式JavaScript框架 |
-| TypeScript | - | 类型安全的JavaScript超集 |
-| Ant Design Vue | - | 企业级UI组件库 |
-| Vite | - | 下一代前端构建工具 |
+设计模式：
+- 实战：门面模式、模板方法模式、策略模式、工厂模式、执行器模式
 
-### AI模型支持
+工具库：
+- Redisson 流量保护 + 分布式 Session
+- Selenium + WebDriver 浏览器自动化
+- jsoup 解析库
+- Hutool 工具库
+- Lombok 注解库
+- Knife4j + Swagger 接口文档
 
-- 通义千问 (Qwen)
-- DeepSeek
-- OpenAI GPT系列
+### 前端
+核心：
+- Vue3 + Composition API
+- Ant Design Vue 组件库
+- Markdown 渲染 + 代码高亮
+- Pinia 全局状态管理
+- Axios 请求库
 
----
+工程化：
+- Vite 构建工具
+- TypeScript 类型安全
+- ESLint 代码校验
+- Prettier 代码美化
+- OpenAPI 代码生成
 
-## 🏗 系统架构
+### 工具
+部署工具
+- Nginx Web 服务器
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                         前端层 (Vue 3 + TypeScript)              │
-│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌───────────┐ │
-│  │  代码生成   │ │  可视化编辑  │ │  应用管理   │ │  用户管理  │ │
-│  └─────────────┘ └─────────────┘ └─────────────┘ └───────────┘ │
-└────────────────────────────┬────────────────────────────────────┘
-                             │ RESTful API
-┌────────────────────────────┴────────────────────────────────────┐
-│                      后端层 (Spring Boot 3)                      │
-│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌───────────┐ │
-│  │ Controller  │ │  Service    │ │  Repository │ │  Security │ │
-│  └─────────────┘ └─────────────┘ └─────────────┘ └───────────┘ │
-└────────────────────────────┬────────────────────────────────────┘
-                             │
-        ┌────────────────────┼────────────────────┐
-        │                    │                    │
-┌───────┴───────┐   ┌────────┴────────┐   ┌──────┴──────┐
-│  MySQL 8.0    │   │  LangChain4j    │   │  文件系统    │
-│  数据持久化    │   │  AI智能体工作流  │   │  代码存储    │
-└───────────────┘   └─────────────────┘   └─────────────┘
-```
-
----
-
-## 📁 项目结构
-
-```
-ai-code-generation-platform/
-├── src/main/java/
-│   └── com/example/
-│       ├── controller/          # 控制器层
-│       ├── service/             # 业务逻辑层
-│       ├── repository/          # 数据访问层
-│       ├── entity/              # 实体类
-│       ├── dto/                 # 数据传输对象
-│       ├── config/              # 配置类
-│       ├── security/            # 安全相关
-│       └── util/                # 工具类
-├── src/main/resources/
-│   ├── application.yml          # 应用配置
-│   └── mapper/                  # MyBatis映射文件
-├── frontend/                    # 前端项目
-│   ├── src/
-│   │   ├── views/               # 页面组件
-│   │   ├── components/          # 通用组件
-│   │   ├── api/                 # API接口
-│   │   ├── store/               # 状态管理
-│   │   └── utils/               # 工具函数
-│   └── package.json
-└── pom.xml                      # Maven配置
-```
+开发工具
+- Cursor 编辑器 AI Vibe Coding
+- JetBrains IDEA 后端
+- JetBrains WebStorm 前端
 
 ---
 
-## 💾 数据库设计
+## 三、业务流程
+### 核心业务流程
+从用户注册登录 => 创建应用 => 修改应用 => 部署应用
 
-### 核心数据表
+![1772953050152.png](https://wp-cdn.4ce.cn/v2/gzkFLMG.png)
 
-#### 用户表 (user)
+### 应用管理流程
+普通用户管理自己的应用：
 
-| 字段 | 类型 | 说明 |
-|-----|------|------|
-| id | BIGINT | 主键 |
-| username | VARCHAR(50) | 用户账号 |
-| password | VARCHAR(100) | 密码(MD5加盐加密) |
-| nickname | VARCHAR(50) | 昵称 |
-| avatar | VARCHAR(255) | 头像URL |
-| email | VARCHAR(100) | 邮箱 |
-| role | VARCHAR(20) | 角色(user/admin) |
-| create_time | DATETIME | 创建时间 |
+![1772953108073.png](https://wp-cdn.4ce.cn/v2/JNj5K8N.png)
+管理员可以后台管理业务数据和监控系统状态：
 
-#### 应用表 (app)
+<img width="957" height="517" alt="image" src="https://github.com/user-attachments/assets/6f3c2e86-0989-4bc2-9d96-e75183e258e6" />
 
-| 字段 | 类型 | 说明 |
-|-----|------|------|
-| id | BIGINT | 主键 |
-| name | VARCHAR(100) | 应用名称 |
-| cover | VARCHAR(255) | 封面图片 |
-| init_prompt | TEXT | 初始化提示词 |
-| code_gen_type | VARCHAR(50) | 代码生成类型 |
-| is_deployed | TINYINT | 部署标识 |
-| deploy_time | DATETIME | 部署时间 |
-| priority | INT | 优先级 |
-| user_id | BIGINT | 创建用户ID |
-| create_time | DATETIME | 创建时间 |
 
-#### 对话历史表 (chat_history)
+### 解决方案实战
+AI 技术实战：
+- LangChain4j AI 智能体开发
+- AI 代码生成 Vibe Coding
+- AI 智能路由
+- AI 提示词编写及优化技巧
+- AI 工具调用
+- AI 流式输出
+- AI 结构化输出
+- AI 对话记忆持久化（基于 Redis）
+- AI 对话记忆隔离
+- AI 护轨
 
-| 字段 | 类型 | 说明 |
-|-----|------|------|
-| id | BIGINT | 主键 |
-| content | TEXT | 消息内容 |
-| message_type | VARCHAR(20) | 消息类型(user/assistant) |
-| app_id | BIGINT | 关联应用ID |
-| user_id | BIGINT | 创建用户ID |
-| create_time | DATETIME | 创建时间 |
+系统架构设计：
+- 多层缓存架构实战
+- 响应式编程实战
+- 实战 5 大设计模式
+- 多角度系统优化
+- Nginx 静态网站服务及反向代理
 
----
+经典业务：
+- 后端代码生成
+- 前端代码生成
+- 动态部署服务设计实现
+- Java 命令哈那个调用
+- 数据管理能力
+- 游标分页查询设计
+- 数据库索引优化实战
+- COS 对象存储实战
+- 截图服务设计开发
 
-## 🔧 核心功能实现
+安全与权限：
+- 用户模块与 AOP 权限校验
+- 流量保护
 
-### 智能代码生成
-
-```java
-// 流式代码生成
-Flux<String> codeStream = aiCodeGeneratorFacade.generateAndSaveCodeStream(
-    message, codeGenTypeEnum, appId
-);
-return streamHandlerExecutor.doExecute(
-    codeStream, chatHistoryService, appId, loginUser, codeGenTypeEnum
-);
-```
-
-### 一键部署
-
-```java
-// Vue项目构建与部署
-boolean buildSuccess = vueProjectBuilder.buildProject(sourceDirPath);
-File distDir = new File(sourceDirPath, "dist");
-FileUtil.copyContent(distDir, new File(deployDirPath), true);
-```
-
-### 对话历史加载
-
-```java
-// 游标分页加载历史记录
-QueryWrapper queryWrapper = QueryWrapper.create()
-    .eq(ChatHistory::getAppId, appId)
-    .orderBy(ChatHistory::getCreateTime, false)
-    .limit(1, maxCount);
-List<ChatHistory> historyList = this.list(queryWrapper);
-```
+监控与可视化：
+- ARMS 系统性能监控和可视化
+- Prometheus + Grafana 业务指标监控和可视化
 
 ---
 
-## 📊 系统测试
+## 四、功能模块
 
-系统经过全面的黑盒测试，涵盖功能测试、性能测试、操作便捷性测试：
+### 用户模块
+- 用户注册
+- 用户登录
+- 用户注销
+- 获取当前登录用户信息
+- 用户权限控制
+- 【管理员】管理用户
 
-| 测试项 | 测试结果 |
-|-------|---------|
-| 登录功能 | ✅ 通过 |
-| 智能代码生成 | ✅ 通过 |
-| 应用管理 | ✅ 通过 |
-| 一键部署 | ✅ 通过 |
-| 用户管理 | ✅ 通过 |
-| 对话历史管理 | ✅ 通过 |
+### AI 代码生成模块
+- 原生 HTML 项目生成
+- 原生多文件项目生成
+- Vue 工程项目生成
+- AI 智能选择生成方案
 
-**测试结论**：系统不仅实现了设计的初衷，在拓展性和稳定性上也很突出，能够完全契合用户的实际使用需求。代码生成准确率达到85%以上。
+### 应用模块
+- 用户基础功能
+  - 创建应用
+  - 编辑应用信息
+  - 删除自己的应用
+  - 查看应用详情
+  - 分页查询自己的应用列表
+  - 查看精选应用列表
+- 用户高级功能
+  - 实时查看应用效果
+  - 应用部署
+  - 应用封面生成
+  - 可视化编辑应用
+  - 应用代码下载
+- 管理功能
+  - 管理所有引用
+  - 设置精选应用
+### 对话历史模块
+- 对话管理
+  - 保存用户消息
+  - 保存 AI 回复消息
+  - 游标分页查询对话历史
+  - 删除对话记录
+- 对话记忆
+  - Redis 持久化会话记忆
+  - 多轮对话上下文保持
+  - 按应用隔离对话记忆
+  - 从数据库加载历史对话
+  - 对话记忆 TTL
+
+---
+
+## 五、架构设计
+<img width="675" height="855" alt="image" src="https://github.com/user-attachments/assets/7fb7b894-989a-4e9c-9cdf-38155f159f5b" />
+
+
