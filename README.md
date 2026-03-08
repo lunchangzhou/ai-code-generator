@@ -81,8 +81,7 @@ AI 技术：
 ![1772953108073.png](https://wp-cdn.4ce.cn/v2/JNj5K8N.png)
 管理员可以后台管理业务数据和监控系统状态：
 
-<img width="957" height="517" alt="image" src="https://github.com/user-attachments/assets/6f3c2e86-0989-4bc2-9d96-e75183e258e6" />
-
+![1772954374172.png](https://wp-cdn.4ce.cn/v2/3FeOUrD.png)
 
 ### 解决方案实战
 AI 技术实战：
@@ -174,6 +173,6 @@ AI 技术实战：
 ---
 
 ## 五、架构设计
-<img width="675" height="855" alt="image" src="https://github.com/user-attachments/assets/7fb7b894-989a-4e9c-9cdf-38155f159f5b" />
+![1772954410487.png](https://wp-cdn.4ce.cn/v2/6jhSlHt.png)
 
 
